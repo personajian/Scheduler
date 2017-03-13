@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: uiframe.MyFrame
+Class-Path: . lib/poi-3.14-20160307.jar lib/poi-examples-3.14-20160307.jar lib/poi-excelant-3.14-20160307.jar lib/poi-ooxml-3.14-20160307.jar lib/poi-ooxml-schemas-3.14-20160307.jar lib/poi-scratchpad-3.14-20160307.jar
+Created-By: SEU
