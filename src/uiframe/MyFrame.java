@@ -48,11 +48,12 @@ public class MyFrame extends Frame implements WindowListener, ActionListener {
 
 	// 程序使用说明
 	private Panel instructionPanel = new Panel();
-	private Label instructionLable = new Label(" 使用说明");
-	private Label instructionLable1 = new Label("1. 打开订单：选择需要排产订单所在的目录；");
-	private Label instructionLable2 = new Label("2. 保存结果：选择需要保存结果的目录；");
-	private Label instructionLable3 = new Label("3. 立即排产：排产结果输出到结果目录；");
-	private Label instructionLable4 = new Label("4. 结束：退出程序。");
+	private Label instructionLable = new Label("使用说明", Label.CENTER);
+	private Label instructionLable1 = new Label("1. 打开订单：选择需要排产订单所在的目录；", Label.CENTER);
+	private Label instructionLable2 = new Label("2. 保存结果：选择需要保存结果的目录；", Label.CENTER);
+	private Label instructionLable3 = new Label("3. 立即排产：排产结果输出到结果目录；", Label.CENTER);
+	private Label instructionLable4 = new Label("4. 退出程序：结束程序。", Label.CENTER);
+	private Label instructionLable5 = new Label();
 
 	// 打开文件、保存文件 按钮 以及 对话框
 	private Panel filePanel = new Panel();
@@ -108,7 +109,7 @@ public class MyFrame extends Frame implements WindowListener, ActionListener {
 
 	public MyFrame() {
 		super("任务订单排产优化方案"); // 设置窗口标题
-		setSize(500, 400); // 设置窗口尺寸
+		setSize(600, 500); // 设置窗口尺寸
 		// 获取屏幕的高度和宽度
 		int w = this.getWidth(); // 获取框架的宽度
 		int h = this.getHeight(); // 获取框架的高度
@@ -153,22 +154,31 @@ public class MyFrame extends Frame implements WindowListener, ActionListener {
 
 		// 添加标题面板
 		themePanel.setLayout(new FlowLayout());
-		themePanel.setBackground(new Color(0XADD8E6));
+		themePanel.setBackground(new Color(0XFFDEAD));
 		themeLabel.setFont(new Font("Consolas", 1, 20));
 		themePanel.add(themeLabel);
 
 		// 添加程序使用说明面板
-		instructionPanel.setLayout(new GridLayout(5, 1));
-		instructionLable.setFont(new Font("Consolas", 1, 18));
-		instructionLable1.setFont(new Font("Consolas", 0, 16));
-		instructionLable2.setFont(new Font("Consolas", 0, 16));
-		instructionLable3.setFont(new Font("Consolas", 0, 16));
-		instructionLable4.setFont(new Font("Consolas", 0, 16));
+		instructionPanel.setLayout(new GridLayout(6, 1));
+		instructionPanel.setBackground(new Color(0XADD8E6));
+		instructionLable.setFont(new Font("Consolas", 1, 19));
+		instructionLable1.setFont(new Font("Consolas", 0, 18));
+		instructionLable2.setFont(new Font("Consolas", 0, 18));
+		instructionLable3.setFont(new Font("Consolas", 0, 18));
+		instructionLable4.setFont(new Font("Consolas", 0, 18));
+		instructionLable.setForeground(new Color(0XFF0000));
+		instructionLable.setBackground(new Color(0XE1FFFF));
+		instructionLable1.setBackground(new Color(0XADD8E6));
+		instructionLable2.setBackground(new Color(0XE1FFFF));
+		instructionLable3.setBackground(new Color(0XADD8E6));
+		instructionLable4.setBackground(new Color(0XE1FFFF));
+
 		instructionPanel.add(instructionLable);
 		instructionPanel.add(instructionLable1);
 		instructionPanel.add(instructionLable2);
 		instructionPanel.add(instructionLable3);
 		instructionPanel.add(instructionLable4);
+		instructionPanel.add(instructionLable5);
 
 		// 添加按钮面板
 		buttons.setLayout(new FlowLayout());
@@ -211,6 +221,7 @@ public class MyFrame extends Frame implements WindowListener, ActionListener {
 		openFileButton.addActionListener(e -> {
 			JFileChooser chooser = new JFileChooser();
 			chooser.setCurrentDirectory(new java.io.File("."));
+			// chooser.setSize(600, 500);
 			chooser.setDialogTitle("选择需要排产订单所在的目录");
 			chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 			//
@@ -231,6 +242,7 @@ public class MyFrame extends Frame implements WindowListener, ActionListener {
 		saveFileButton.addActionListener(e -> {
 			JFileChooser chooser = new JFileChooser();
 			chooser.setCurrentDirectory(new java.io.File("."));
+			// chooser.setSize(600, 500);
 			chooser.setDialogTitle("选择需要保存结果的目录");
 			chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 			//
